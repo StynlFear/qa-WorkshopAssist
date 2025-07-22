@@ -33,7 +33,13 @@ describe('example to-do app', () => {
     cy.get('.todo-list li').first().should('have.text', 'Pay electric bill')
     cy.get('.todo-list li').last().should('have.text', 'Walk the dog')
   })
-
+ describe('login functionality', () => {
+  it('should allow a user to log in', () => {
+    cy.visit('https://example.cypress.io/login')
+    cy.login('test@example.com', 'password123')
+    cy.contains('Welcome').should('be.visible')
+  })
+})
   it('can add new todo items', () => {
     // We'll store our item text in a variable so we can reuse it
     const newItem = 'Feed the cat'

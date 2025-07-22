@@ -7,8 +7,17 @@
 // commands please read more here:
 // https://on.cypress.io/custom-commands
 // ***********************************************
-//
-//
+Cypress.Commands.add('login', (email, password) => {
+    // Custom command to log in a user
+    cy.request({
+        method: 'POST',
+        url: '/login', // Adjust the URL as needed
+        body: { email, password },
+    }).then((response) => {
+        expect(response.status).to.eq(200)
+        window.localStorage.setItem('authToken', response.body.token)
+    })
+    })
 // -- This is a parent command --
 // Cypress.Commands.add('login', (email, password) => { ... })
 //
