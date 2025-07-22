@@ -1,5 +1,4 @@
-import GoogleSearchPage from '../../support/GoogleSearchPage';
-import googleSearchPage from '../../support/GoogleSearchPage';
+import GoogleSearchPage from '../../support/GoogleSearchPage';  
 
 describe('Google Search Tests', () => {
     it('should search for a query and show results', () => {
